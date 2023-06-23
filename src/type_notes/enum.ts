@@ -13,4 +13,4 @@ enum Cores {
 export function escolhaACor(cor: Cores): void {
   console.log(Cores[cor]);
 }
-escolhaACor();
+escolhaACor(10);
