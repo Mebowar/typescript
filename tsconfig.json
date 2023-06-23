@@ -108,5 +108,5 @@
   },
   "include":[
     "./src"
-  ]
+, "type_notes"  ]
 }
