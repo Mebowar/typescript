@@ -1,6 +1,6 @@
 export class Empresa {
-  public readonly nome: string;
-  private readonly colabs: Colabs[] = [];
+  readonly nome: string; // public não necessário
+  private readonly colaboradores: Colaborador[] = [];
   protected readonly cnpj: string;
 
   constructor(nome: string, cnpj: string) {
@@ -8,31 +8,29 @@ export class Empresa {
     this.cnpj = cnpj;
   }
 
-  addColabs(colabs: Colabs): void {
-    this.colabs.push(colabs);
+  adicionaColaborador(colaborador: Colaborador): void {
+    this.colaboradores.push(colaborador);
   }
 
-  mostrarColabs(): void {
-    for (const colabs of this.colabs) {
-      console.log(colabs);
+  mostrarColaboradores(): void {
+    for (const colaborador of this.colaboradores) {
+      console.log(colaborador);
     }
   }
 }
 
-export class Colabs {
+export class Colaborador {
   constructor(
     public readonly nome: string,
     public readonly sobrenome: string,
   ) {}
 }
 
-const empresa1 = new Empresa('Mebow', '12.132.111/0001-12');
-const colabs1 = new Colabs('Jorge', 'Mebow');
-const colabs2 = new Colabs('Debora', 'Maria');
-const colabs3 = new Colabs('JR', 'Paulo');
-empresa1.addColabs(colabs1);
-empresa1.addColabs(colabs2);
-empresa1.addColabs(colabs3);
-
+const empresa1 = new Empresa('Udemy', '11.111.111/0001-11');
+const colaborador1 = new Colaborador('Luiz', 'Otávio');
+const colaborador2 = new Colaborador('Maria', 'Miranda');
+const colaborador3 = new Colaborador('João', 'Vieira');
+empresa1.adicionaColaborador(colaborador1);
+empresa1.adicionaColaborador(colaborador2);
+empresa1.adicionaColaborador(colaborador3);
 console.log(empresa1);
-empresa1.mostrarColabs();
