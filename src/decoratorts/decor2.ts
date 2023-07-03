@@ -1,9 +1,6 @@
-@decorator
-export class Animal {
-  constructor(public nome: string, public cor: string) {}
-}
+function inverteNomeECor<T extends new (...args: any[]) => any>(target: T): T {
+  console.log('Sou o decorador e recebi', target);
 
-function decorator<T extends new (...args: any[]) => any>(target: T): T {
   return class extends target {
     cor: string;
     nome: string;
@@ -18,6 +15,13 @@ function decorator<T extends new (...args: any[]) => any>(target: T): T {
       return valor.split('').reverse().join('');
     }
   };
+}
+
+@inverteNomeECor
+export class Animal {
+  constructor(public nome: string, public cor: string) {
+    console.log('Sou a classe');
+  }
 }
 
 const animal = new Animal('Luiz', 'roxo');
